@@ -26,7 +26,7 @@
       "command": "npx",
       "args": ["-y", "firecrawl-mcp"],
       "env": {
-        "FIRECRAWL_API_KEY": "fc-6d12d785b9fb4effa63a42a4b1ca48a9"
+        "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_API_KEY_HERE"
       }
     },
     "postgresql-mcp": {
@@ -37,7 +37,7 @@
       "disabled": false,
       "alwaysAllow": [],
       "env": {
-        "POSTGRES_CONNECTION_STRING": "postgresql://elevate:elevate_dev_password@localhost:5432/elevate_dev"
+        "POSTGRES_CONNECTION_STRING": "YOUR_POSTGRES_CONNECTION_STRING_HERE"
       }
     }
   },

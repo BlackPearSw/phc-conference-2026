@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# MCP and Claude configuration files with sensitive data
+.mcp.json
+.claude/
+*.local.json
+
+# IDE and editor files
+.vscode/
+.idea/
