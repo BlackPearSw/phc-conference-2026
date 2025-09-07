@@ -1,0 +1,45 @@
+{
+  "mcpServers": {
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "${PWD}"
+      ],
+      "env": {}
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "mcp-server-firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-6d12d785b9fb4effa63a42a4b1ca48a9"
+      }
+    },
+    "postgresql-mcp": {
+      "command": "node",
+      "args": [
+        "/Users/davidjehring/Development/MCP_Servers/postgresql-mcp-server/build/index.js"
+      ],
+      "disabled": false,
+      "alwaysAllow": [],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "postgresql://elevate:elevate_dev_password@localhost:5432/elevate_dev"
+      }
+    }
+  },
+  "globalShortcut": "Alt+C"
+}

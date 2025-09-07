@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Award, ChevronDown } from "lucide-react";
 import { conferenceInfo, statistics } from "@/lib/data";
 import Image from "next/image";
+import SpeakersSection from "@/components/SpeakersSection";
+import ConferenceVideoSlider from "@/components/conference-video-slider";
+import MembershipSection from "@/components/membership-section";
 
 export default function Home() {
   return (
@@ -86,9 +89,20 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl mb-12 text-white/90"
+            className="text-xl md:text-2xl mb-6 text-white/90"
           >
             {conferenceInfo.tagline}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg md:text-xl mb-12 text-white/80 max-w-4xl mx-auto leading-relaxed"
+          >
+            Celebrating 10 years of helping people nourish to flourish! Join us to explore good metabolic health 
+            for all the family with dedicated sessions from world-renowned speakers on women's health, 
+            men's health, teenage health, and children's health.
           </motion.p>
 
           {/* Key Details Cards */}
@@ -103,11 +117,17 @@ export default function Home() {
               <h3 className="font-semibold mb-1">Date</h3>
               <p className="text-sm text-white/80">{conferenceInfo.dates}</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+            <a 
+              href="https://maps.google.com/?q=The+Light+Euston+London+NW1+2BJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 block hover:bg-white/20 transition-colors"
+            >
               <MapPin className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
               <h3 className="font-semibold mb-1">Location</h3>
               <p className="text-sm text-white/80">{conferenceInfo.location}</p>
-            </div>
+              <p className="text-xs text-phc-yellow mt-2">Click for directions →</p>
+            </a>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <Award className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
               <h3 className="font-semibold mb-1">CPD Points</h3>
@@ -143,15 +163,21 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <ChevronDown className="w-8 h-8 text-white/60" />
         </motion.div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-50 via-phc-light/5 to-phc-yellow/10 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 right-10 w-64 h-64 bg-phc-light/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-phc-yellow/20 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -177,7 +203,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-gradient-to-br from-white to-phc-light/5 rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all hover:scale-105 border border-phc-light/10"
               >
                 <div className="text-4xl font-bold text-phc-light mb-2">{stat.number}</div>
                 <div className="text-gray-600">{stat.label}</div>
@@ -186,6 +212,48 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Speakers Section with gradient transition */}
+      <div className="relative bg-gradient-to-b from-phc-yellow/10 via-white to-phc-light/5">
+        <SpeakersSection />
+      </div>
+
+      {/* Conference Videos Section */}
+      <section className="relative py-20 px-4 bg-gradient-to-br from-phc-light/5 via-white to-phc-dark/5 overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 opacity-20">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-phc-light rounded-full blur-3xl"
+            animate={{
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-phc-yellow rounded-full blur-3xl"
+            animate={{
+              x: [0, -50, 0],
+              y: [0, 30, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+        <div className="relative">
+          <ConferenceVideoSlider />
+        </div>
+      </section>
+
+      {/* Membership Section */}
+      <MembershipSection />
     </div>
   );
 }
