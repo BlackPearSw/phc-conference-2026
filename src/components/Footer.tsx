@@ -76,10 +76,10 @@ export default function Footer() {
             <div className="md:col-span-1">
               <Link href="https://phcuk.org/" target="_blank" rel="noopener">
                 <Image 
-                  src="/phc-logo-white.svg" 
+                  src="/images/PHC_logo_white_text.png" 
                   alt="Public Health Collaboration" 
-                  width={140} 
-                  height={60}
+                  width={180} 
+                  height={80}
                   className="mb-4"
                 />
               </Link>

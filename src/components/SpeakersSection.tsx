@@ -34,15 +34,16 @@ export default function SpeakersSection() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-white via-gray-50 to-phc-light/10 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-phc-light/20 hover:border-phc-light/40 hover:-translate-y-1">
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
+              <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-phc-light/20 hover:border-phc-light/40 hover:-translate-y-1">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-white">
                   {speaker.photo ? (
                     <Image
                       src={`/images/speaker-photos/${speaker.photo}`}
                       alt={speaker.name}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      priority={index < 8}
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full bg-gradient-to-br from-phc-light via-phc-dark to-phc-yellow/30">
@@ -52,14 +53,14 @@ export default function SpeakersSection() {
                     </div>
                   )}
                 </div>
-                <div className="p-4 bg-gradient-to-b from-transparent to-white/50">
+                <div className="p-4 bg-white">
                   <h3 className="font-bold text-lg text-phc-dark mb-1">
                     {speaker.name}
                   </h3>
                   <p className="text-sm text-phc-light font-semibold mb-2">
                     {speaker.title}
                   </p>
-                  <p className="text-xs text-gray-600 line-clamp-3">
+                  <p className="text-xs text-gray-700 line-clamp-3">
                     {speaker.description}
                   </p>
                   {speaker.links && (
@@ -91,7 +92,7 @@ export default function SpeakersSection() {
           transition={{ duration: 0.8 }}
           className="text-center mt-12 relative"
         >
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-700 mb-6">
             More speakers to be announced soon!
           </p>
           <a
