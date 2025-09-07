@@ -26,16 +26,16 @@ npm install        # Reinstall dependencies after lockfile patching
 - **Framework**: Next.js 15 with App Router
 - **Styling**: Tailwind CSS v4 with custom PHC color scheme
 - **Animations**: Framer Motion for interactive UI elements
-- **AWS Integration**: Configured for S3 and DynamoDB (using AWS SDK v3)
+- **Deployment**: Netlify with automatic Git deployments
 - **TypeScript**: Strict mode enabled with path alias `@/` for `src/`
 
-### AWS Configuration
-The project uses AWS services with:
-- Profile: `PHC`
-- Region: `eu-west-2`
-- S3 Bucket: `phc-conference-2026`
-- DynamoDB Table: `phc-conference-data`
-- Credentials loaded via AWS profile (fromIni)
+### Deployment Configuration
+The project is deployed on Netlify with:
+- **Build Command**: `npm run build`
+- **Publish Directory**: `out`
+- **Static Export**: Configured via `output: 'export'` in Next.js
+- **Auto Deploy**: Enabled for main branch
+- **Preview Deploys**: Enabled for pull requests
 
 ### Design System
 Custom Tailwind colors defined:
@@ -51,8 +51,5 @@ Conference data is centralized in `src/lib/data.ts` containing:
 
 ### Environment Configuration
 Required environment variables in `.env.local`:
-- AWS_REGION
-- AWS_S3_BUCKET
-- AWS_DYNAMODB_TABLE
 - NEXT_PUBLIC_SITE_URL
 - NEXT_PUBLIC_TICKET_URL
