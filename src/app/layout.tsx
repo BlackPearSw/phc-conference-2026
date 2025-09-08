@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://phcconference.co.uk'),
   title: "PHC Conference 2026 - Nourish to Flourish",
   description: "Celebrating 10 years of helping people nourish to flourish. Join us for the premier metabolic health conference on May 16-17, 2026 in London.",
   keywords: "PHC, metabolic health, nutrition, conference, London, 2026, health conference",
@@ -20,10 +21,10 @@ export const metadata: Metadata = {
     url: "https://phcconference.co.uk",
     images: [
       {
-        url: "/images/NourishToFlourish - Blue - JUST LOGO.png",
+        url: "/images/NourishToFlourish - Blue 2.jpg",
         width: 1200,
         height: 630,
-        alt: "PHC Conference 2026 - Nourish to Flourish",
+        alt: "PHC Conference 2026 - Nourish to Flourish - 10 Year Anniversary Conference",
       }
     ],
     siteName: "PHC Conference 2026",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PHC Conference 2026 - Nourish to Flourish",
     description: "Join us for 2 days of world-class speakers and 16 CPD points at The Light, Euston, London on May 16-17, 2026",
-    images: ["/images/NourishToFlourish - Blue - JUST LOGO.png"],
+    images: ["/images/NourishToFlourish - Blue 2.jpg"],
     creator: "@PHCukorg",
     site: "@PHCukorg",
   },

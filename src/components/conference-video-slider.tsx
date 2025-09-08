@@ -32,7 +32,7 @@ const VideoCard = ({ video }: VideoCardProps) => {
   
   return (
     <div 
-      className="relative w-72 sm:w-80 md:w-96 h-44 sm:h-48 md:h-56 rounded-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex-shrink-0 bg-gradient-to-br from-phc-light/10 to-phc-dark/10 border border-phc-light/20"
+      className="relative w-80 sm:w-80 md:w-84 lg:w-96 h-48 sm:h-48 md:h-52 lg:h-56 rounded-xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex-shrink-0 bg-gradient-to-br from-phc-light/10 to-phc-dark/10 border border-phc-light/20 will-change-transform"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -73,17 +73,17 @@ const VideoCard = ({ video }: VideoCardProps) => {
           </div>
         )}
         
-        {/* Content overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-phc-dark via-phc-dark/80 to-transparent p-4 sm:p-5 md:p-6">
-          <div className="mb-1 sm:mb-2">
-            <span className="inline-block bg-gradient-to-r from-phc-yellow to-phc-light text-phc-dark px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+        {/* Content overlay - simplified for iOS Safari */}
+        <div className="absolute bottom-0 left-0 right-0 bg-phc-dark/95 p-3 sm:p-4 md:p-6" style={{ WebkitBackfaceVisibility: 'hidden', transform: 'translateZ(0)' }}>
+          <div className="mb-1">
+            <span className="inline-block bg-gradient-to-r from-phc-yellow to-phc-light text-phc-dark px-2 py-0.5 rounded-full text-xs sm:text-xs md:text-sm font-semibold">
               {video.year}
             </span>
           </div>
-          <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 line-clamp-2 drop-shadow-lg">
+          <h3 className="text-white font-bold text-sm sm:text-sm md:text-base lg:text-lg mb-0.5 sm:mb-1 line-clamp-2">
             {video.title}
           </h3>
-          <p className="text-gray-200 text-xs sm:text-sm line-clamp-2 sm:line-clamp-3 drop-shadow">
+          <p className="text-gray-200 text-xs sm:text-xs md:text-sm line-clamp-2">
             {video.description}
           </p>
         </div>
@@ -202,6 +202,7 @@ const ConferenceVideoSlider = () => {
           <div 
             ref={scrollContainerRef}
             className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-4 sm:px-6 lg:px-8 scrollbar-hide scroll-smooth"
+            style={{ WebkitOverflowScrolling: 'touch', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
           >
             {videos.map((video, index) => (
               <VideoCard key={`${video.year}-${index}`} video={video} />
