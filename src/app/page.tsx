@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Award, ChevronDown } from "lucide-react";
+import { Calendar, MapPin, Award, ChevronDown, CalendarPlus, Utensils, Clock, Info } from "lucide-react";
 import { conferenceInfo, statistics } from "@/lib/data";
+import { generateICS } from "@/lib/generateICS";
 import Image from "next/image";
 import SpeakersSection from "@/components/SpeakersSection";
 import ConferenceVideoSlider from "@/components/conference-video-slider";
@@ -120,6 +121,14 @@ export default function Home() {
               <Calendar className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
               <h3 className="font-semibold mb-1">Date</h3>
               <p className="text-sm text-white/80">{conferenceInfo.dates}</p>
+              <button
+                onClick={generateICS}
+                className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-phc-yellow/20 hover:bg-phc-yellow/30 text-phc-yellow rounded-lg transition-colors text-xs font-medium"
+                aria-label="Add conference to calendar"
+              >
+                <CalendarPlus className="w-4 h-4" />
+                Add to Calendar
+              </button>
             </div>
             <a 
               href="https://maps.google.com/?q=The+Light+Euston+London+NW1+2BJ"
@@ -213,6 +222,105 @@ export default function Home() {
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Event Details Section */}
+      <section id="event-details" className="relative py-20 px-4 bg-gradient-to-br from-phc-dark/5 via-white to-phc-yellow/5 overflow-hidden">
+        <div className="relative max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-phc-dark mb-6">
+              Event Information
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Important details about the conference schedule and special events
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Fundraiser Dinner Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8 }}
+              className="bg-gradient-to-br from-phc-dark to-phc-light text-white rounded-2xl p-8 shadow-xl"
+            >
+              <div className="flex items-center mb-4">
+                <Utensils className="w-8 h-8 text-phc-yellow mr-3" />
+                <h3 className="text-2xl font-bold">Fundraiser Dinner</h3>
+              </div>
+              <div className="space-y-3">
+                <p className="flex items-center">
+                  <Calendar className="w-5 h-5 mr-2 text-phc-yellow" />
+                  Saturday 16th May 2026
+                </p>
+                <p className="flex items-center">
+                  <Clock className="w-5 h-5 mr-2 text-phc-yellow" />
+                  From 7:00 PM
+                </p>
+                <p className="flex items-center">
+                  <MapPin className="w-5 h-5 mr-2 text-phc-yellow" />
+                  Near the conference venue
+                </p>
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <p className="text-sm text-white/90">
+                    Join us for an evening of networking and fundraising to support the Public Health Collaboration's mission.
+                  </p>
+                  <p className="mt-3 text-phc-yellow font-semibold flex items-center">
+                    <Info className="w-4 h-4 mr-2" />
+                    Full details and tickets available January 2026
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Speaker Schedule Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8 }}
+              className="bg-gradient-to-br from-phc-light to-phc-dark text-white rounded-2xl p-8 shadow-xl"
+            >
+              <div className="flex items-center mb-4">
+                <Clock className="w-8 h-8 text-phc-yellow mr-3" />
+                <h3 className="text-2xl font-bold">Speaker Schedule</h3>
+              </div>
+              <div className="space-y-3">
+                <p className="text-white/90">
+                  The detailed speaker schedule and session timings will be published in January 2026.
+                </p>
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <h4 className="font-semibold mb-2">What to expect:</h4>
+                  <ul className="space-y-2 text-sm text-white/90">
+                    <li className="flex items-start">
+                      <span className="text-phc-yellow mr-2">•</span>
+                      Keynote presentations from world-renowned experts
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-phc-yellow mr-2">•</span>
+                      Dedicated sessions on women's, men's, teenage, and children's health
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-phc-yellow mr-2">•</span>
+                      Interactive Q&A sessions
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-phc-yellow mr-2">•</span>
+                      Networking opportunities between sessions
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
