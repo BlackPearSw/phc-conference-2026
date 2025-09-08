@@ -12,6 +12,8 @@ import MobileJumpNav from "@/components/MobileJumpNav";
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Preload Open Graph image to ensure it's included in build */}
+      <link rel="preload" as="image" href="/images/PHC26-Save-The-Date.jpg" />
       <MobileJumpNav />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-phc-dark to-phc-light overflow-hidden">
