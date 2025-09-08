@@ -7,10 +7,12 @@ import Image from "next/image";
 import SpeakersSection from "@/components/SpeakersSection";
 import ConferenceVideoSlider from "@/components/conference-video-slider";
 import MembershipSection from "@/components/membership-section";
+import MobileJumpNav from "@/components/MobileJumpNav";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <MobileJumpNav />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-phc-dark to-phc-light overflow-hidden">
         {/* Floating shapes */}
@@ -140,7 +142,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center pb-20 sm:pb-12"
           >
             <a
               href={conferenceInfo.ticketUrl}
@@ -163,14 +165,14 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <ChevronDown className="w-8 h-8 text-white/60" />
         </motion.div>
       </section>
 
       {/* About Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-gray-50 via-phc-light/5 to-phc-yellow/10 overflow-hidden">
+      <section id="about" className="relative py-20 px-4 bg-gradient-to-br from-gray-50 via-phc-light/5 to-phc-yellow/10 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 right-10 w-64 h-64 bg-phc-light/20 rounded-full blur-3xl"></div>
@@ -214,12 +216,12 @@ export default function Home() {
       </section>
 
       {/* Speakers Section with gradient transition */}
-      <div className="relative bg-gradient-to-b from-phc-yellow/10 via-white to-phc-light/5">
+      <div id="speakers" className="relative bg-gradient-to-b from-phc-yellow/10 via-white to-phc-light/5">
         <SpeakersSection />
       </div>
 
       {/* Conference Videos Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-phc-light/5 via-white to-phc-dark/5 overflow-hidden">
+      <section id="videos" className="relative py-20 px-4 bg-gradient-to-br from-phc-light/5 via-white to-phc-dark/5 overflow-hidden">
         {/* Animated gradient orbs */}
         <div className="absolute inset-0 opacity-20">
           <motion.div
@@ -253,7 +255,9 @@ export default function Home() {
       </section>
 
       {/* Membership Section */}
-      <MembershipSection />
+      <div id="membership">
+        <MembershipSection />
+      </div>
     </div>
   );
 }
