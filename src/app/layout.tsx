@@ -15,9 +15,27 @@ export const metadata: Metadata = {
   keywords: "PHC, metabolic health, nutrition, conference, London, 2026, health conference",
   openGraph: {
     title: "PHC Conference 2026 - Nourish to Flourish",
-    description: "Join us for 2 days of world-class speakers and 16 CPD points",
+    description: "Join us for 2 days of world-class speakers and 16 CPD points at The Light, Euston, London on May 16-17, 2026",
     type: "website",
     url: "https://phcconference.co.uk",
+    images: [
+      {
+        url: "/images/NourishToFlourish - Blue - JUST LOGO.png",
+        width: 1200,
+        height: 630,
+        alt: "PHC Conference 2026 - Nourish to Flourish",
+      }
+    ],
+    siteName: "PHC Conference 2026",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PHC Conference 2026 - Nourish to Flourish",
+    description: "Join us for 2 days of world-class speakers and 16 CPD points at The Light, Euston, London on May 16-17, 2026",
+    images: ["/images/NourishToFlourish - Blue - JUST LOGO.png"],
+    creator: "@PHCukorg",
+    site: "@PHCukorg",
   },
 };
 
