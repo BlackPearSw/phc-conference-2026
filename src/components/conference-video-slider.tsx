@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Video {
   year: number;
@@ -26,6 +26,16 @@ const extractStartTime = (url: string): number => {
 const VideoCard = ({ video }: VideoCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isIPhone, setIsIPhone] = useState(false);
+  
+  useEffect(() => {
+    // Detect iPhone/iPad
+    const checkIPhone = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+      setIsIPhone(/iPhone|iPad|iPod/i.test(userAgent));
+    };
+    checkIPhone();
+  }, []);
   
   const videoId = extractYouTubeId(video.url);
   const startTime = extractStartTime(video.url);
@@ -73,8 +83,15 @@ const VideoCard = ({ video }: VideoCardProps) => {
           </div>
         )}
         
-        {/* Content overlay - simplified for iOS Safari */}
-        <div className="absolute bottom-0 left-0 right-0 bg-phc-dark/95 p-3 sm:p-4 md:p-6" style={{ WebkitBackfaceVisibility: 'hidden', transform: 'translateZ(0)' }}>
+        {/* Content overlay - solid bg for iPhone, gradient for others */}
+        <div 
+          className={`absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 ${
+            isIPhone 
+              ? 'bg-phc-dark/95' 
+              : 'bg-gradient-to-t from-phc-dark/95 via-phc-dark/80 to-transparent'
+          }`}
+          style={{ WebkitBackfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+        >
           <div className="mb-1">
             <span className="inline-block bg-gradient-to-r from-phc-yellow to-phc-light text-phc-dark px-2 py-0.5 rounded-full text-xs sm:text-xs md:text-sm font-semibold">
               {video.year}
