@@ -31,7 +31,10 @@ export const speakers = [
     description: "Neuroscience researcher and performance consultant",
     initials: "TW",
     photo: "tommy-wood.jpg",
-    bio: "Associate Professor of Pediatrics and Neuroscience at University of Washington. Research focuses on brain health across the lifespan. Cambridge biochemistry graduate, Oxford medical degree, Oslo PhD. Performance consultant to Formula 1 drivers. Director of British Society of Lifestyle Medicine."
+    bio: "Associate Professor of Pediatrics and Neuroscience at University of Washington. Research focuses on brain health across the lifespan. Cambridge biochemistry graduate, Oxford medical degree, Oslo PhD. Performance consultant to Formula 1 drivers. Director of British Society of Lifestyle Medicine.",
+    links: {
+      website: "https://www.drtommywood.com/"
+    }
   },
   {
     id: 2,
@@ -42,8 +45,7 @@ export const speakers = [
     photo: "nina-teicholz.jpg",
     bio: "Science journalist and author known for challenging dietary guidelines. Author of NYT bestseller 'The Big Fat Surprise' and founder of the Nutrition Coalition. Holds degrees from Yale, Stanford, and Oxford, with a PhD in nutrition from University of Reading (2024). Published in Lancet, BMJ, and major media outlets.",
     links: {
-      website: "https://ninateicholz.com",
-      substack: "Unsettled Science"
+      website: "https://ninateicholz.com"
     }
   },
   {
@@ -53,10 +55,7 @@ export const speakers = [
     description: "Award-winning NHS GP revolutionizing Type 2 diabetes treatment through low-carb approaches",
     initials: "DU",
     photo: "david-unwin.png",
-    bio: "Celebrated NHS GP whose low-carb lifestyle approach has helped hundreds of patients put Type 2 diabetes into remission. Known for his practical implementation of dietary interventions in primary care.",
-    links: {
-      youtube: "https://www.youtube.com/watch?v=8XuRwgvCpT4"
-    }
+    bio: "Celebrated NHS GP whose low-carb lifestyle approach has helped hundreds of patients put Type 2 diabetes into remission. Known for his practical implementation of dietary interventions in primary care."
   },
   {
     id: 4,
@@ -65,10 +64,7 @@ export const speakers = [
     description: "University of Westminster researcher investigating ketosis and cellular health",
     initials: "IC",
     photo: "isabella-cooper.png",
-    bio: "Researcher at the University of Westminster investigating how metabolic states like ketosis affect cellular health and cancer outcomes. Specializes in Ketogenic Endocrine Metabolic Oncology (KEMO) therapy.",
-    links: {
-      youtube: "https://www.youtube.com/watch?v=JZZicEP66lo"
-    }
+    bio: "Researcher at the University of Westminster investigating how metabolic states like ketosis affect cellular health and cancer outcomes. Specializes in Ketogenic Endocrine Metabolic Oncology (KEMO) therapy."
   },
   {
     id: 5,
@@ -147,10 +143,7 @@ export const speakers = [
     description: "Entrepreneur researching obesity and food addiction",
     initials: "SBN",
     photo: "steve-bennett.png",
-    bio: "Entrepreneur and health advocate researching the connections between obesity, type 2 diabetes, and food addiction. Focuses on metabolic health interventions and lifestyle solutions.",
-    links: {
-      youtube: "https://www.youtube.com/watch?v=wlWCX33_Tuw"
-    }
+    bio: "Entrepreneur and health advocate researching the connections between obesity, type 2 diabetes, and food addiction. Focuses on metabolic health interventions and lifestyle solutions."
   },
   {
     id: 13,
@@ -168,10 +161,7 @@ export const speakers = [
     description: "PHC Founder and conference organiser",
     initials: "SF",
     photo: "sam-feltham.png",
-    bio: "Founder of the Public Health Collaboration and conference organiser. Passionate advocate for evidence-based nutrition and lifestyle medicine, dedicated to promoting low-carb nutrition education.",
-    links: {
-      youtube: "https://www.youtube.com/watch?v=S91XsYVJcHo"
-    }
+    bio: "Founder of the Public Health Collaboration and conference organiser. Passionate advocate for evidence-based nutrition and lifestyle medicine, dedicated to promoting low-carb nutrition education."
   }
 ];;;;
 

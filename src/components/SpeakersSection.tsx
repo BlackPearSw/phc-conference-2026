@@ -34,7 +34,7 @@ export default function SpeakersSection() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group"
             >
-              <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-phc-light/20 hover:border-phc-light/40 hover:-translate-y-1">
+              <div className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-phc-light/20 hover:border-phc-light/40 hover:-translate-y-1 h-full flex flex-col">
                 <div className="relative aspect-[3/4] w-full overflow-hidden bg-white">
                   {speaker.photo ? (
                     <Image
@@ -53,32 +53,34 @@ export default function SpeakersSection() {
                     </div>
                   )}
                 </div>
-                <div className="p-4 bg-white">
+                <div className="p-4 bg-white flex-1 flex flex-col">
                   <h3 className="font-bold text-lg text-phc-dark mb-1">
                     {speaker.name}
                   </h3>
                   <p className="text-sm text-phc-light font-semibold mb-2">
                     {speaker.title}
                   </p>
-                  <p className="text-xs text-gray-700 line-clamp-3">
+                  <p className="text-xs text-gray-700 line-clamp-3 flex-1">
                     {speaker.description}
                   </p>
-                  {speaker.links && (
-                    <div className="mt-3 flex gap-2">
-                      {Object.entries(speaker.links).map(([key, url]) => (
-                        <a
-                          key={key}
-                          href={url as string}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-phc-light hover:text-phc-yellow transition-all hover:scale-110"
-                          title={`View ${key}`}
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <div className="mt-3 h-5">
+                    {speaker.links && (
+                      <div className="flex gap-2">
+                        {Object.entries(speaker.links).map(([key, url]) => (
+                          <a
+                            key={key}
+                            href={url as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-phc-light hover:text-phc-yellow transition-all hover:scale-110"
+                            title={`View ${key}`}
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
