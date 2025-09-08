@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://phcconference.co.uk",
     images: [
       {
-        url: "/images/NourishToFlourish - Blue 2.jpg",
+        url: "/images/PHC26 Save The Date.jpg",
         width: 1200,
         height: 630,
         alt: "PHC Conference 2026 - Nourish to Flourish - 10 Year Anniversary Conference",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PHC Conference 2026 - Nourish to Flourish",
     description: "Join us for 2 days of world-class speakers and 16 CPD points at The Light, Euston, London on May 16-17, 2026",
-    images: ["/images/NourishToFlourish - Blue 2.jpg"],
+    images: ["/images/PHC26 Save The Date.jpg"],
     creator: "@PHCukorg",
     site: "@PHCukorg",
   },
