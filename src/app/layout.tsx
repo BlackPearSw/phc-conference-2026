@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://phcconference.co.uk'),
+  metadataBase: new URL('https://phcukconference.org'),
   title: "PHC Conference 2026 - Nourish to Flourish",
   description: "Celebrating 10 years of helping people nourish to flourish. Join us for the premier metabolic health conference on May 16-17, 2026 in London.",
   keywords: "PHC, metabolic health, nutrition, conference, London, 2026, health conference",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "PHC Conference 2026 - Nourish to Flourish",
     description: "Join us for 2 days of world-class speakers and 16 CPD points at The Light, Euston, London on May 16-17, 2026",
     type: "website",
-    url: "https://phcconference.co.uk",
+    url: "https://phcukconference.org",
     images: [
       {
         url: "/images/PHC26-Save-The-Date.jpg",
