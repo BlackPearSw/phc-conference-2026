@@ -83,12 +83,15 @@ const VideoCard = ({ video }: VideoCardProps) => {
           </div>
         )}
         
-        {/* Content overlay - solid bg for iPhone, gradient for others */}
+        {/* Gradient overlay - always present */}
+        <div className="absolute inset-0 bg-gradient-to-t from-phc-dark/90 via-phc-dark/40 to-transparent pointer-events-none" />
+        
+        {/* Content overlay - solid bg for iPhone text area only */}
         <div 
           className={`absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 ${
             isIPhone 
               ? 'bg-phc-dark/95' 
-              : 'bg-gradient-to-t from-phc-dark/95 via-phc-dark/80 to-transparent'
+              : ''
           }`}
           style={{ WebkitBackfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
         >
@@ -97,10 +100,10 @@ const VideoCard = ({ video }: VideoCardProps) => {
               {video.year}
             </span>
           </div>
-          <h3 className="text-white font-bold text-sm sm:text-sm md:text-base lg:text-lg mb-0.5 sm:mb-1 line-clamp-2">
+          <h3 className="text-white font-bold text-xs sm:text-sm md:text-base lg:text-lg mb-0.5 sm:mb-1 line-clamp-1">
             {video.title}
           </h3>
-          <p className="text-gray-200 text-xs sm:text-xs md:text-sm line-clamp-2">
+          <p className="text-gray-200 text-xs sm:text-xs md:text-sm line-clamp-3">
             {video.description}
           </p>
         </div>
@@ -116,61 +119,61 @@ const ConferenceVideoSlider = () => {
   const videos = [
     {
       year: 2016,
-      title: "Dr David and Dr Jen Unwin Role Playing Different Treatment Approaches",
-      description: "One of the highlights from our very first conference in 2016, featuring two very different approaches to treating patients.",
+      title: "Dr David & Dr Jen Unwin Role Play",
+      description: "One of the highlights from our very first conference in 2016, featuring Dr David and Dr Jen Unwin demonstrating two very different approaches to treating patients.",
       url: "https://www.youtube.com/watch?v=E2F-3MZYQqE&list=PL1J9GrLlUYVJ0Fy1cXdUtnNomgTCA7Bv9&index=6&pp=gAQBiAQB"
     },
     {
       year: 2017,
-      title: "Dr Jason Fung - Our Most Viewed Video",
+      title: "Dr Jason Fung - Most Viewed",
       description: "At our second conference in 2017, we hosted the fantastic Dr Jason Fung, which has become our most viewed video on YouTube.",
       url: "https://www.youtube.com/watch?v=iatPAjf5I_Y&list=PL1J9GrLlUYVKJo8rI0Lhar9h2vzVxj4f8&index=1&pp=gAQBiAQB"
     },
     {
       year: 2018,
-      title: "Prof Tim Noakes Receives Standing Ovation",
+      title: "Prof Tim Noakes Standing Ovation",
       description: "In 2018 there was an incredibly heartfelt standing ovation for Prof Tim Noakes.",
       url: "https://www.youtube.com/watch?v=0Es9G2qSna8&list=PL1J9GrLlUYVK0WmGa7wlH9u64qNW6cTQ7&index=3&t=2s&pp=gAQBiAQB"
     },
     {
       year: 2019,
-      title: "Giancarlo Caldesi's Type 2 Diabetes Remission Story",
+      title: "Giancarlo Caldesi's Remission Story",
       description: "At our fourth conference in 2019 we had the charismatic restaurateur, Giancarlo Caldesi tell his type 2 diabetes remission story.",
       url: "https://www.youtube.com/watch?v=xp4CB6WA_u4&list=PL1J9GrLlUYVKrUbAgKIKc6Benb4kT7bbq&index=7&pp=gAQBiAQB"
     },
     {
       year: 2020,
-      title: "Dr Sarah Hallberg at Our First Virtual Conference",
+      title: "Dr Sarah Hallberg - Virtual Conference",
       description: "2020 saw our first virtual conference, where we were honoured to host the stupendous Dr Sarah Hallberg before her untimely death in 2022.",
       url: "https://www.youtube.com/watch?v=zek8xJg2kTQ&list=PL1J9GrLlUYVII3NX6PRSOdwBylw8Vr0dy&index=3&pp=gAQBiAQB"
     },
     {
       year: 2021,
-      title: "Dr David Unwin's 8-Year Low-Carb Data from Norwood Surgery",
+      title: "Dr Unwin's 8-Year Low-Carb Data",
       description: "Our sixth conference in 2021 was also virtual with Dr David Unwin presenting his 8-year low-carb data from Norwood Surgery.",
       url: "https://www.youtube.com/watch?v=XyB-UNjt_V0&list=PL1J9GrLlUYVLe9sMRnnFQsEEghevdZ3RS&index=6&t=86s&pp=gAQBiAQB"
     },
     {
       year: 2022,
-      title: "Nina Teicholz's Overview of the Science Behind the Movement",
+      title: "Nina Teicholz - Science Overview",
       description: "Back to being in-person in 2022, Nina Teicholz gave us an incredible overview of the science behind the movement.",
       url: "https://www.youtube.com/watch?v=yIXbnCZ5kGw&list=PL1J9GrLlUYVLmGM8VeHFAZ9NxhMEiA7AU&index=1&t=1s&pp=gAQBiAQB"
     },
     {
       year: 2023,
-      title: "Dr David Unwin Receives First Bennett Foundation Lifetime Achievement Award",
+      title: "Dr Unwin - Lifetime Achievement",
       description: "In 2023 we presented the first Bennett Foundation Lifetime Achievement Award to Dr David Unwin.",
       url: "https://www.youtube.com/watch?v=hmUZgoMcWTo&list=PL1J9GrLlUYVLmhQVhTdOoCRLN46VqGkHX&index=4&t=20s&pp=gAQBiAQB"
     },
     {
       year: 2024,
-      title: "Gary Taubes Receives Bennett Foundation Lifetime Achievement Award",
+      title: "Gary Taubes - Lifetime Award",
       description: "The second Bennett Foundation Lifetime Achievement Award in 2024 was given to science journalist, Gary Taubes for his outstanding contribution.",
       url: "https://www.youtube.com/watch?v=MWRtjYdKqns&list=PL1J9GrLlUYVKrBlSWLBJTWKHTMr94Ifwf&index=4&t=5s&pp=gAQBiAQB"
     },
     {
       year: 2025,
-      title: "Dr Eric Westman Receives Bennett Foundation Lifetime Achievement Award",
+      title: "Dr Eric Westman - Lifetime Award",
       description: "At our most recent conference in 2025, the Bennett Foundation Lifetime Achievement Award was given to low-carb pioneer, Dr Eric Westman.",
       url: "https://www.youtube.com/watch?v=imCFYCnQ65I&list=PL1J9GrLlUYVIoj-lR6E0Z7c_hE53sa6ma&index=2&pp=gAQBiAQB"
     }
@@ -264,6 +267,12 @@ const ConferenceVideoSlider = () => {
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+        .line-clamp-1 {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
         .line-clamp-2 {
           display: -webkit-box;
