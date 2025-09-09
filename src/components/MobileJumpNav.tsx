@@ -66,12 +66,19 @@ export default function MobileJumpNav() {
     };
   }, []);
 
-  const jumpToSection = (sectionId: string) => {
+  const jumpToSection = (sectionId: string, e?: React.MouseEvent) => {
+    // Prevent any default behavior
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     if (sectionId === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (sectionId === "tickets") {
       // Special handling for tickets - open in new tab
-      window.open("https://phcuk.org/conference", "_blank");
+      const ticketUrl = "https://phc26.eventify.io/t2/tickets";
+      window.open(ticketUrl, "_blank", "noopener,noreferrer");
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -121,20 +128,41 @@ export default function MobileJumpNav() {
             
             {/* Menu */}
             <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => jumpToSection(section.id)}
-                  className={`w-full px-4 py-3 text-left text-sm hover:bg-phc-light/10 transition-colors flex items-center justify-between ${
-                    currentSection === section.id ? "bg-phc-light/5 text-phc-dark font-semibold" : "text-gray-700"
-                  }`}
-                >
-                  {section.label}
-                  {section.id === "tickets" && (
-                    <span className="text-xs text-phc-light">External →</span>
-                  )}
-                </button>
-              ))}
+              {sections.map((section) => {
+                // Use anchor tag for tickets, button for others
+                if (section.id === "tickets") {
+                  return (
+                    <a
+                      key={section.id}
+                      href="https://phc26.eventify.io/t2/tickets"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsOpen(false);
+                        // Use location.href for mobile compatibility
+                        window.location.href = "https://phc26.eventify.io/t2/tickets";
+                      }}
+                      className={`w-full px-4 py-3 text-left text-sm hover:bg-phc-light/10 transition-colors flex items-center justify-between block ${
+                        currentSection === section.id ? "bg-phc-light/5 text-phc-dark font-semibold" : "text-gray-700"
+                      }`}
+                    >
+                      {section.label}
+                      <span className="text-xs text-phc-light">External →</span>
+                    </a>
+                  );
+                }
+                
+                return (
+                  <button
+                    key={section.id}
+                    onClick={(e) => jumpToSection(section.id, e)}
+                    className={`w-full px-4 py-3 text-left text-sm hover:bg-phc-light/10 transition-colors flex items-center justify-between ${
+                      currentSection === section.id ? "bg-phc-light/5 text-phc-dark font-semibold" : "text-gray-700"
+                    }`}
+                  >
+                    {section.label}
+                  </button>
+                );
+              })}
             </div>
           </>
         )}

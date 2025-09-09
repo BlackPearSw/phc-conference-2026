@@ -7,7 +7,9 @@ import {
   Users, 
   Megaphone, 
   Calendar, 
-  Zap 
+  Zap,
+  Sparkles,
+  TrendingDown
 } from 'lucide-react';
 
 const benefits = [
@@ -34,7 +36,8 @@ const benefits = [
   {
     icon: Calendar,
     title: 'Event Privileges',
-    description: 'Enjoy early access, special pricing (e.g. £50 discount from the conference), and exclusive networking opportunities at all PHC events and conferences.'
+    description: 'Save £60 on conference tickets! Enjoy early access, special member pricing, and exclusive networking opportunities at all PHC events.',
+    highlight: true
   },
   {
     icon: Zap,
@@ -54,9 +57,16 @@ export default function MembershipSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="inline-flex items-center px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold mb-6">
-            ⭐ Membership
-          </span>
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+            className="inline-block mb-6"
+          >
+            <span className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-phc-yellow to-yellow-400 text-phc-dark rounded-full text-sm font-bold">
+              <Sparkles className="w-4 h-4 mr-2" />
+              SAVE £60 ON EARLY BIRD TICKETS WITH MEMBERSHIP
+            </span>
+          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-phc-dark mb-6">
             Why Join the Public Health Collaboration?
           </h2>
@@ -77,17 +87,30 @@ export default function MembershipSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className={`${
+                  benefit.highlight 
+                    ? 'bg-gradient-to-br from-phc-yellow/10 to-white border-2 border-phc-yellow' 
+                    : 'bg-white'
+                } rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105`}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-phc-dark rounded-full flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className={`w-12 h-12 ${
+                      benefit.highlight ? 'bg-phc-yellow' : 'bg-phc-dark'
+                    } rounded-full flex items-center justify-center`}>
+                      <Icon className={`w-6 h-6 ${
+                        benefit.highlight ? 'text-phc-dark' : 'text-white'
+                      }`} />
                     </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-phc-dark mb-3">
                       {benefit.title}
+                      {benefit.highlight && (
+                        <span className="ml-2 text-xs bg-red-500 text-white px-2 py-1 rounded-full">
+                          HOT
+                        </span>
+                      )}
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
                       {benefit.description}
@@ -106,6 +129,18 @@ export default function MembershipSection() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
+          <div className="max-w-2xl mx-auto mb-8 p-6 bg-gradient-to-r from-phc-yellow/20 to-phc-light/20 rounded-xl border-2 border-phc-yellow">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <TrendingDown className="w-5 h-5 text-phc-dark" />
+              <p className="text-lg font-bold text-phc-dark">
+                Early Bird Special: Join now and save £60 on conference tickets!
+              </p>
+              <TrendingDown className="w-5 h-5 text-phc-dark" />
+            </div>
+            <p className="text-sm text-gray-700">
+              Annual membership is just £75 - instantly save £60 on your conference ticket
+            </p>
+          </div>
           <p className="text-xl text-gray-700 mb-8">
             Ready to be part of a healthcare revolution?
           </p>
@@ -113,7 +148,7 @@ export default function MembershipSection() {
             href="https://phcuk.org/membership"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition-colors duration-300"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-phc-dark to-phc-light text-white font-bold rounded-full hover:shadow-2xl transition-all hover:scale-105"
           >
             Become a Member Today
             <svg 

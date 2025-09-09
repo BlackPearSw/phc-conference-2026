@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Award, ChevronDown, CalendarPlus, Utensils, Clock, Info } from "lucide-react";
+import { Calendar, MapPin, Award, ChevronDown, CalendarPlus, Utensils, Clock, Info, Sparkles } from "lucide-react";
 import { conferenceInfo, statistics } from "@/lib/data";
 import { generateICS } from "@/lib/generateICS";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import SpeakersSection from "@/components/SpeakersSection";
 import ConferenceVideoSlider from "@/components/conference-video-slider";
 import MembershipSection from "@/components/membership-section";
 import MobileJumpNav from "@/components/MobileJumpNav";
+import EarlyBirdCountdown from "@/components/EarlyBirdCountdown";
 
 export default function Home() {
   return (
@@ -17,9 +18,9 @@ export default function Home() {
       <link rel="preload" as="image" href="/images/PHC26-Save-The-Date-v2.png" />
       <MobileJumpNav />
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-phc-dark to-phc-light overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-phc-dark to-phc-light overflow-hidden py-20 sm:py-0">
         {/* Floating shapes */}
-        <div className="absolute inset-0 pt-8 sm:pt-12 md:pt-16">
+        <div className="absolute inset-0 pt-8 sm:pt-12 md:pt-16 hidden sm:block">
           <motion.div
             className="absolute top-8 left-2 sm:top-12 sm:left-10 md:top-20 md:left-20 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-lg"
             animate={{
@@ -55,18 +56,18 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto pt-16 sm:pt-12 md:pt-0">
+        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto w-full">
           {/* PHC Logo */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="mb-3 sm:mb-4"
           >
             <img 
               src="/images/PHC_logo_white_text.png" 
               alt="Public Health Collaboration" 
-              className="h-14 sm:h-18 md:h-24 mx-auto"
+              className="h-10 sm:h-16 md:h-20 mx-auto"
             />
           </motion.div>
 
@@ -74,9 +75,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-6"
+            className="mb-2 sm:mb-3"
           >
-            <span className="inline-block px-6 py-2 bg-phc-yellow/20 backdrop-blur-sm rounded-full text-phc-yellow font-semibold">
+            <span className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 bg-phc-yellow/20 backdrop-blur-sm rounded-full text-phc-yellow font-semibold text-xs sm:text-sm">
               10th Anniversary Conference
             </span>
           </motion.div>
@@ -85,7 +86,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-3"
           >
             Nourish to Flourish
           </motion.h1>
@@ -94,7 +95,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl mb-6 text-white/90"
+            className="text-base sm:text-lg md:text-xl mb-2 sm:mb-3 text-white/90"
           >
             {conferenceInfo.tagline}
           </motion.p>
@@ -103,7 +104,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl mb-12 text-white/80 max-w-4xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 text-white/80 max-w-3xl mx-auto leading-relaxed px-2"
           >
             Celebrating 10 years of helping people nourish to flourish! Join us to explore good metabolic health 
             for all the family with dedicated sessions from world-renowned speakers on women's health, 
@@ -115,18 +116,18 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid md:grid-cols-3 gap-4 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-6"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <Calendar className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
-              <h3 className="font-semibold mb-1">Date</h3>
-              <p className="text-sm text-white/80">{conferenceInfo.dates}</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+              <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mb-1 sm:mb-2 mx-auto text-phc-yellow" />
+              <h3 className="font-semibold text-xs sm:text-sm">Date</h3>
+              <p className="text-xs text-white/80">{conferenceInfo.dates}</p>
               <button
                 onClick={generateICS}
-                className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-phc-yellow/20 hover:bg-phc-yellow/30 text-phc-yellow rounded-lg transition-colors text-xs font-medium"
+                className="mt-2 inline-flex items-center gap-1 px-2 py-1 bg-phc-yellow/20 hover:bg-phc-yellow/30 text-phc-yellow rounded transition-colors text-xs font-medium"
                 aria-label="Add conference to calendar"
               >
-                <CalendarPlus className="w-4 h-4" />
+                <CalendarPlus className="w-3 h-3" />
                 Add to Calendar
               </button>
             </div>
@@ -134,38 +135,64 @@ export default function Home() {
               href="https://maps.google.com/?q=The+Light+Euston+London+NW1+2BJ"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 block hover:bg-white/20 transition-colors"
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 block hover:bg-white/20 transition-colors"
             >
-              <MapPin className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
-              <h3 className="font-semibold mb-1">Location</h3>
-              <p className="text-sm text-white/80">{conferenceInfo.location}</p>
-              <p className="text-xs text-phc-yellow mt-2">Click for directions →</p>
+              <MapPin className="w-5 h-5 sm:w-6 sm:h-6 mb-1 sm:mb-2 mx-auto text-phc-yellow" />
+              <h3 className="font-semibold text-xs sm:text-sm">Location</h3>
+              <p className="text-xs text-white/80">{conferenceInfo.location}</p>
+              <p className="text-xs text-phc-yellow mt-1">Click for directions →</p>
             </a>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <Award className="w-8 h-8 mb-3 mx-auto text-phc-yellow" />
-              <h3 className="font-semibold mb-1">CPD Points</h3>
-              <p className="text-sm text-white/80">{conferenceInfo.cpdPoints} Points Available</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6 mb-1 sm:mb-2 mx-auto text-phc-yellow" />
+              <h3 className="font-semibold text-xs sm:text-sm">CPD Points</h3>
+              <p className="text-xs text-white/80">{conferenceInfo.cpdPoints} Points Available</p>
             </div>
           </motion.div>
 
-          {/* CTAs */}
+          {/* Early Bird Countdown */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.85 }}
+            className="max-w-sm sm:max-w-md mx-auto mb-4 sm:mb-5"
+          >
+            <EarlyBirdCountdown 
+              endDate="2025-10-06T23:59:59"
+              label="Super Early Bird Ends"
+              highlight={true}
+            />
+          </motion.div>
+
+          {/* CTAs with Early Bird Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center pb-20 sm:pb-12"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-center"
           >
-            <a
-              href={conferenceInfo.ticketUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-phc-yellow text-phc-dark font-bold rounded-full hover:bg-yellow-400 transition-colors"
-            >
-              Get Your Tickets
-            </a>
+            <div className="relative">
+              <a
+                href={conferenceInfo.ticketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-phc-yellow to-yellow-400 text-phc-dark font-bold rounded-full hover:shadow-2xl transition-all hover:scale-105 inline-block text-xs sm:text-sm"
+              >
+                <span className="flex items-center gap-1 sm:gap-2">
+                  Get Early Bird Tickets
+                  <span className="text-xs">from £114</span>
+                </span>
+              </a>
+              <motion.span 
+                animate={{ rotate: [0, -5, 5, -5, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+                className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full"
+              >
+                SAVE £60
+              </motion.span>
+            </div>
             <button
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-              className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-colors"
+              className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/30 transition-colors text-xs sm:text-sm"
             >
               Learn More
             </button>
@@ -176,9 +203,9 @@ export default function Home() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+          className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 z-20"
         >
-          <ChevronDown className="w-8 h-8 text-white/60" />
+          <ChevronDown className="w-6 h-6 text-white/60" />
         </motion.div>
       </section>
 
@@ -223,6 +250,149 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Early Bird Pricing Section */}
+      <section id="pricing" className="relative py-20 px-4 bg-gradient-to-br from-phc-yellow/10 via-white to-phc-light/10 overflow-hidden">
+        <div className="relative max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-6 py-2 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold rounded-full text-sm">
+                🔥 EARLY BIRD SPECIAL - LIMITED TIME
+              </span>
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-bold text-phc-dark mb-6">
+              Super Early Bird Pricing
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Book now and save up to £60 on your conference tickets!
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {/* PHC Members Ticket */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="relative bg-gradient-to-br from-phc-dark to-phc-light text-white rounded-2xl p-8 shadow-xl transform hover:scale-105 transition-all"
+            >
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="px-4 py-1 bg-phc-yellow text-phc-dark font-bold rounded-full text-sm">
+                  BEST VALUE
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 mt-2">PHC Members</h3>
+              <div className="mb-6">
+                <div className="text-4xl font-bold">£114</div>
+                <div className="text-sm opacity-90 line-through">Regular: £174</div>
+                <div className="text-phc-yellow font-semibold mt-1">Save £60!</div>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li>✓ 2-day conference access</li>
+                <li>✓ 16 CPD points</li>
+                <li>✓ All sessions included</li>
+                <li>✓ Member exclusive discount</li>
+              </ul>
+              <div className="text-xs opacity-75">
+                Sale ends: 6th October 2025
+              </div>
+            </motion.div>
+
+            {/* Non-Members Ticket */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white rounded-2xl p-8 shadow-xl border-2 border-phc-light/30 transform hover:scale-105 transition-all"
+            >
+              <h3 className="text-2xl font-bold mb-4 text-phc-dark">Non-Members</h3>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-phc-dark">£174</div>
+                <div className="text-sm text-gray-500 line-through">Regular: £234</div>
+                <div className="text-phc-light font-semibold mt-1">Save £60!</div>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm text-gray-700">
+                <li>✓ 2-day conference access</li>
+                <li>✓ 16 CPD points</li>
+                <li>✓ All sessions included</li>
+                <li>✓ Networking opportunities</li>
+              </ul>
+              <div className="text-xs text-gray-500">
+                Sale ends: 6th October 2025
+              </div>
+            </motion.div>
+
+            {/* Membership Add-on */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-gradient-to-br from-phc-yellow to-yellow-400 text-phc-dark rounded-2xl p-8 shadow-xl transform hover:scale-105 transition-all"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Sparkles className="w-6 h-6" />
+                <h3 className="text-2xl font-bold">Add Membership</h3>
+              </div>
+              <div className="mb-6">
+                <div className="text-4xl font-bold">£75</div>
+                <div className="text-sm font-semibold mt-1">Annual Membership</div>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li>✓ Instant £60 ticket discount</li>
+                <li>✓ Year-round benefits</li>
+                <li>✓ Exclusive events access</li>
+                <li>✓ Support PHC mission</li>
+              </ul>
+              <div className="text-xs font-semibold">
+                Bundle & Save!
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Countdown Timer */}
+          <div className="max-w-lg mx-auto mb-8">
+            <EarlyBirdCountdown 
+              endDate="2025-10-06T23:59:59"
+              label="Early Bird Offer Ends In"
+              highlight={false}
+            />
+          </div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <a
+              href={conferenceInfo.ticketUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-5 bg-gradient-to-r from-phc-dark to-phc-light text-white font-bold rounded-full hover:shadow-2xl transition-all hover:scale-105 text-lg"
+            >
+              Secure Your Early Bird Tickets Now →
+            </a>
+            <p className="mt-4 text-sm text-gray-600">
+              ⚠️ Lunch, teas and coffees not included - available for separate purchase
+            </p>
+          </motion.div>
         </div>
       </section>
 
