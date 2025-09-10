@@ -94,7 +94,7 @@ export const speakers = [
   {
     id: 7,
     name: "Dr Wafaa Abdel-Hadi",
-    title: "Functional Medicine Expert",
+    title: "Clinical Oncologist & Functional Medicine Expert",
     description: "First certified Functional Medicine Doctor in Egypt and the Middle East",
     initials: "WAH",
     photo: "wafaa-abdel-hadi.jpg",
