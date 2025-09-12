@@ -12,7 +12,7 @@ export const speakers = [
     }
   },
   {
-    id: 8,
+    id: 2,
     name: "Dr Paul Reynolds",
     title: "Research Specialist",
     description: "BYU Professor specializing in developmental biology and pulmonary medicine",
@@ -25,7 +25,7 @@ export const speakers = [
     }
   },
   {
-    id: 15,
+    id: 3,
     name: "Dr Tommy Wood",
     title: "Associate Professor",
     description: "Neuroscience researcher and performance consultant",
@@ -37,7 +37,7 @@ export const speakers = [
     }
   },
   {
-    id: 2,
+    id: 4,
     name: "Nina Teicholz",
     title: "Nutrition Science Journalist",
     description: "NYT bestselling author of The Big Fat Surprise, challenging conventional nutrition wisdom",
@@ -49,7 +49,7 @@ export const speakers = [
     }
   },
   {
-    id: 3,
+    id: 5,
     name: "Dr David Unwin",
     title: "GP & Low Carb Pioneer",
     description: "Award-winning NHS GP revolutionizing Type 2 diabetes treatment through low-carb approaches",
@@ -58,7 +58,7 @@ export const speakers = [
     bio: "Celebrated NHS GP whose low-carb lifestyle approach has helped hundreds of patients put Type 2 diabetes into remission. Known for his practical implementation of dietary interventions in primary care."
   },
   {
-    id: 4,
+    id: 6,
     name: "Dr Isabella Cooper",
     title: "Functional Medicine Doctor",
     description: "University of Westminster researcher investigating ketosis and cellular health",
@@ -67,7 +67,7 @@ export const speakers = [
     bio: "Researcher at the University of Westminster investigating how metabolic states like ketosis affect cellular health and cancer outcomes. Specializes in Ketogenic Endocrine Metabolic Oncology (KEMO) therapy."
   },
   {
-    id: 5,
+    id: 7,
     name: "Davinia Taylor",
     title: "Wellness Entrepreneur",
     description: "Biohacking pioneer and founder of WillPowders",
@@ -79,7 +79,7 @@ export const speakers = [
     }
   },
   {
-    id: 6,
+    id: 8,
     name: "Thomas Hal Robson-Kanu",
     title: "Elite Athlete & Wellness Advocate",
     description: "Former Wales international footballer and founder of The Turmeric Co.",
@@ -92,7 +92,7 @@ export const speakers = [
     }
   },
   {
-    id: 7,
+    id: 9,
     name: "Dr Wafaa Abdel-Hadi",
     title: "Clinical Oncologist & Functional Medicine Expert",
     description: "First certified Functional Medicine Doctor in Egypt and the Middle East",
@@ -104,7 +104,20 @@ export const speakers = [
     }
   },
   {
-    id: 9,
+    id: 10,
+    name: "Ruth Seymour",
+    title: "Nutritional Therapist",
+    description: "BANT Registered Nutritional Therapist and Nutritional Wellbeing Foundation Trustee",
+    initials: "RS",
+    photo: "ruth-seymour.jpg",
+    bio: "Ruth is a BANT Registered Nutritional Therapist and founder of Root & Renew Nutrition. She is frequently described by her clients as 'the most realistic nutritionist you'll ever meet'. Ruth spent many years resolving her own health issues with digestion, hormones and mental health by getting to the root cause of what was causing them and supporting them with nutrition and lifestyle changes. After years as a leader in the corporate world - in the food & drink industry - and latterly in the charity sector she formalised her training in Nutritional Therapy at the College of Naturopathic Medicine and became a Registered Nutritionist in 2022. Ruth works 1:1 with clients to support their metabolic, digestive and mental health challenges from her clinic in North Somerset and online. She also works with businesses who are serious about supporting their employee physical and mental wellbeing with more than free fruit in the kitchen. Ruth is a trustee of the Nutritional Wellbeing Foundation (NWF) who are proud to be supporting many of the charities working to improve the nutrition of secondary school age young people, including the PHC Real Food Rebellion.",
+    links: {
+      linkedin: "https://www.linkedin.com/in/ruth-seymour-rootandrenewnutrition/",
+      website: "https://www.nutritionalwellbeingfoundation.org.uk/"
+    }
+  },
+  {
+    id: 11,
     name: "Chris Hill",
     title: "Real Food Rebellion Co-Leader",
     description: "Retired teacher and educational expert promoting ketogenic principles",
@@ -116,7 +129,7 @@ export const speakers = [
     }
   },
   {
-    id: 10,
+    id: 12,
     name: "David Sogan",
     title: "Real Food Rebellion Co-Leader",
     description: "TLC Health Coach and real food advocate",
@@ -125,7 +138,7 @@ export const speakers = [
     bio: "Co-Leader of the Real Food Rebellion and TLC Health Coach. Passionate advocate for real food and metabolic health, working to educate communities about whole foods and the dangers of ultra-processed foods."
   },
   {
-    id: 11,
+    id: 13,
     name: "Sue Beckers",
     title: "Nutrition Expert",
     description: "GP with Master's in Nutritional Medicine",
@@ -137,7 +150,7 @@ export const speakers = [
     }
   },
   {
-    id: 12,
+    id: 14,
     name: "Steve Bennett",
     title: "Health Philathropist",
     description: "Entrepreneur researching obesity and food addiction",
@@ -146,7 +159,7 @@ export const speakers = [
     bio: "Entrepreneur and health advocate researching the connections between obesity, type 2 diabetes, and food addiction. Focuses on metabolic health interventions and lifestyle solutions."
   },
   {
-    id: 13,
+    id: 15,
     name: "Dr David Jehring",
     title: "PHC Chair of Trustees",
     description: "PHC Chair of Trustees and pioneering UK Health Informatician",
@@ -155,7 +168,7 @@ export const speakers = [
     bio: "Chair of Trustees of the Public Health Collaboration. GP and pioneering UK Health Informatician who designed the first Windows GP clinical systems, helped design the RCGP research database, and implemented the first UK national diabetic audit."
   },
   {
-    id: 14,
+    id: 16,
     name: "Sam Feltham",
     title: "PHC Director",
     description: "PHC Founder and conference organiser",

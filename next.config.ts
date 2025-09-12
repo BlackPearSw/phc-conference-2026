@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  }
+  },
+  outputFileTracingRoot: '/Users/davidjehring/Development/Websites/phc-conference-2026'
 };
 
 export default nextConfig;
