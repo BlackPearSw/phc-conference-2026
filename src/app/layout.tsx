@@ -14,9 +14,19 @@ export const metadata: Metadata = {
   title: "PHC Conference 2026 - Nourish to Flourish",
   description: "Celebrating 10 years of helping people nourish to flourish. Join us for the premier metabolic health conference on May 16-17, 2026 in London.",
   keywords: "PHC, metabolic health, nutrition, conference, London, 2026, health conference",
-  other: {
-    'cache-control': 'no-cache',
-    'pragma': 'no-cache',
+  alternates: {
+    canonical: 'https://phcukconference.org',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     title: "PHC Conference 2026 - Nourish to Flourish",

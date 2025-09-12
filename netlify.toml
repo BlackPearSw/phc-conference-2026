@@ -18,10 +18,8 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[redirects]]
-  from = "/conference"
-  to = "/"
-  status = 301
+# Removed redirect from /conference to / to fix SEO issues
+# If /conference page needs to exist, create a proper page instead
 
 # Add custom 404 page
 [[redirects]]
